@@ -35,6 +35,13 @@ type Config struct {
 	LogLevel  string `bconf:"log.level"`
 }
 
+// FieldSets defines the field-sets for an applicaiton logger.
+func FieldSets() bconf.FieldSets {
+	return bconf.FieldSets{
+		LoggerFieldSet(),
+	}
+}
+
 // LoggerFieldSet defines the field-set for an application logger.
 func LoggerFieldSet() *bconf.FieldSet {
 	return bconf.FSB(LogFieldSetKey).Fields(
@@ -44,11 +51,4 @@ func LoggerFieldSet() *bconf.FieldSet {
 		bconf.FB(LogLevelKey, bconf.String).Default("info").
 			Enumeration("debug", "info", "warn", "error", "dpanic", "panic", "fatal").C(),
 	).C()
-}
-
-// LoggerFieldSets defines the field-sets for an applicaiton logger.
-func LoggerFieldSets() bconf.FieldSets {
-	return bconf.FieldSets{
-		LoggerFieldSet(),
-	}
 }
