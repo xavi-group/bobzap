@@ -1,4 +1,4 @@
-module github.com/xavi-group/bob/bobzap
+module github.com/xavi-group/bobzap
 
 go 1.23.5
 
