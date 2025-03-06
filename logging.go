@@ -1,6 +1,7 @@
 package bobzap
 
 import (
+	"errors"
 	"fmt"
 	"sync"
 
@@ -11,12 +12,30 @@ import (
 )
 
 var (
-	zapConfig      *zap.Config
 	loggerInitLock sync.RWMutex
+	zapConfig      *zap.Config
+	configLock     sync.RWMutex
+	defaultConfig  *Config
 )
 
-// InitializeGlobalLogger defines global zap and open-telemetry zap loggers configured via the given monitor.Config.
-func InitializeGlobalLogger(c *LoggerConfig) error {
+// InitializeGlobalLogger defines global zap and open-telemetry zap loggers configured via the first given Config or
+// the default config if it has been initialized by bobzap.NewConfig().
+func InitializeGlobalLogger(config ...*Config) error {
+	var c *Config
+
+	if len(config) > 0 {
+		c = config[0]
+	} else {
+		configLock.RLock()
+		defer configLock.RUnlock()
+
+		c = defaultConfig
+	}
+
+	if c == nil {
+		return errors.New("no logger configuration provided or found")
+	}
+
 	zapConfig, err := getZapConfig(c)
 	if err != nil {
 		return fmt.Errorf("problem creating zap configuration: %w", err)
@@ -72,7 +91,7 @@ func SetGlobalLogLevel(level string) error {
 	return nil
 }
 
-func getZapConfig(c *LoggerConfig) (*zap.Config, error) {
+func getZapConfig(c *Config) (*zap.Config, error) {
 	if zapConfig != nil {
 		return zapConfig, nil
 	}

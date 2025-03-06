@@ -15,13 +15,18 @@ const (
 	LogLevelKey = "level"
 )
 
-func NewLoggerConfig() *LoggerConfig {
-	return &LoggerConfig{}
+func NewConfig() *Config {
+	configLock.Lock()
+	defer configLock.Unlock()
+
+	defaultConfig = &Config{}
+
+	return defaultConfig
 }
 
-// LoggerConfig defines the expected values for configuring an application logger. It is recommended to initialize a
-// LoggerConfig with either bobzap.NewLoggerConfig().
-type LoggerConfig struct {
+// Config defines the expected values for configuring an application logger. It is recommended to initialize a
+// Config with either bobzap.NewConfig() in order to set the default config when initializing the global logger.
+type Config struct {
 	bconf.ConfigStruct
 	AppID     string `bconf:"app.id"`
 	LogColor  bool   `bconf:"log.color"`
