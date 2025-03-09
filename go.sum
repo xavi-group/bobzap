@@ -9,6 +9,8 @@ github.com/uptrace/opentelemetry-go-extra/otelzap v0.3.2 h1:cj/Z6FKTTYBnstI0Lni9
 github.com/uptrace/opentelemetry-go-extra/otelzap v0.3.2/go.mod h1:LDaXk90gKEC2nC7JH3Lpnhfu+2V7o/TsqomJJmqA39o=
 github.com/xavi-group/bconf v0.6.0 h1:bytEdPsXbkTOKw99iKa/Ya+BsssakwlC3TD46jor0Do=
 github.com/xavi-group/bconf v0.6.0/go.mod h1:tws3plo+QeC4F9OSbWrxRe7cliqo9gJ+oAvqGKOqk9o=
+github.com/xavi-group/bconf v0.6.3 h1:NokIiBOqCYTadrJGU9+bMqtoM6uKgQte5xfVCgmfxeo=
+github.com/xavi-group/bconf v0.6.3/go.mod h1:tws3plo+QeC4F9OSbWrxRe7cliqo9gJ+oAvqGKOqk9o=
 go.opentelemetry.io/otel v1.30.0 h1:F2t8sK4qf1fAmY9ua4ohFS/K+FUuOPemHUIXHtktrts=
 go.opentelemetry.io/otel v1.30.0/go.mod h1:tFw4Br9b7fOS+uEao81PJjVMjW/5fvNCbpsDIXqP0pc=
 go.opentelemetry.io/otel/log v0.6.0 h1:nH66tr+dmEgW5y+F9LanGJUBYPrRgP4g2EkmPE3LeK8=
