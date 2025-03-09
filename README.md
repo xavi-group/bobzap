@@ -16,22 +16,22 @@ go get github.com/xavi-group/bobzap
 Optional Configuration:
         log.color bool
                 Default value: 'true'
-                Environment key: 'EXAMPLE_LOG_COLOR'
+                Environment key: 'LOG_COLOR'
                 Flag argument: '--log_color'
         log.config string
                 Accepted values: ['production', 'development']
                 Default value: 'production'
-                Environment key: 'EXAMPLE_LOG_CONFIG'
+                Environment key: 'LOG_CONFIG'
                 Flag argument: '--log_config'
         log.format string
                 Accepted values: ['console', 'json']
                 Default value: 'json'
-                Environment key: 'EXAMPLE_LOG_FORMAT'
+                Environment key: 'LOG_FORMAT'
                 Flag argument: '--log_format'
         log.level string
                 Accepted values: ['debug', 'info', 'warn', 'error', 'dpanic', 'panic', 'fatal']
                 Default value: 'info'
-                Environment key: 'EXAMPLE_LOG_LEVEL'
+                Environment key: 'LOG_LEVEL'
                 Flag argument: '--log_level'
 ```
 
