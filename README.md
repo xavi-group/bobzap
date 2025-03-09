@@ -15,22 +15,26 @@ go get github.com/xavi-group/bobzap
 ```
 Optional Configuration:
         log.color bool
+                Log color defines whether console formatted logs are rendered in color.
                 Default value: 'true'
                 Environment key: 'LOG_COLOR'
                 Flag argument: '--log_color'
         log.config string
+                Log config defines whether the Zap will be configured with development or production defaults. 
+                Note: `development` defaults to debug log level and console format, `production` defaults to info log 
+                level and json format. 
                 Accepted values: ['production', 'development']
                 Default value: 'production'
                 Environment key: 'LOG_CONFIG'
                 Flag argument: '--log_config'
         log.format string
+                Log format defines the format logs will be emitted in (overrides log config defaults).
                 Accepted values: ['console', 'json']
-                Default value: 'json'
                 Environment key: 'LOG_FORMAT'
                 Flag argument: '--log_format'
         log.level string
+                Log level defines the level at which logs will be emitted (overrides log config defaults).
                 Accepted values: ['debug', 'info', 'warn', 'error', 'dpanic', 'panic', 'fatal']
-                Default value: 'info'
                 Environment key: 'LOG_LEVEL'
                 Flag argument: '--log_level'
 ```
@@ -56,7 +60,7 @@ func main() {
 		"Example application showcasing bobzap logging",
 		bconf.WithAppIDFunc(func() string { return ksuid.New().String() }),
 		bconf.WithAppVersion("1.0.0"),
-		bconf.WithEnvironmentLoader("example"),
+		bconf.WithEnvironmentLoader(),
 		bconf.WithFlagLoader(),
 	)
 
