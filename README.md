@@ -14,22 +14,6 @@ go get github.com/xavi-group/bobzap
 
 ```
 Optional Configuration:
-        app.description string
-                Default value: 'Example application showcasing bobzap logging'
-                Environment key: 'EXAMPLE_APP_DESCRIPTION'
-                Flag argument: '--app_description'
-        app.id string
-                Default value: <generated-at-run-time>
-                Environment key: 'EXAMPLE_APP_ID'
-                Flag argument: '--app_id'
-        app.name string
-                Default value: 'bobzapexample'
-                Environment key: 'EXAMPLE_APP_NAME'
-                Flag argument: '--app_name'
-        app.version string
-                Default value: '1.0.0'
-                Environment key: 'EXAMPLE_APP_VERSION'
-                Flag argument: '--app_version'
         log.color bool
                 Default value: 'true'
                 Environment key: 'EXAMPLE_LOG_COLOR'
